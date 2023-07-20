@@ -140,19 +140,22 @@ def evaluate():
     return avg_loss
 
 
-# best_valid_loss = float('inf')
-# train_losses = []
-# valid_losses = []
+def StartTrain():
+    best_valid_loss = float('inf')
+    train_losses = []
+    valid_losses = []
 
-# for epoch in range(num_epoch):
-#     print('\n Epoch {:}/{:}'.format(epoch + 1, num_epoch))
-#     train_loss = train()
-#     # evaluate model
-#     valid_loss = evaluate()
-#     if valid_loss < best_valid_loss:
-#         best_valid_loss = valid_loss
-#         torch.save(model.state_dict(), 'saved_weights.pth')
-#     train_losses.append(train_loss)
-#     valid_losses.append(valid_loss)
-#     print(f'\nTraining Loss: {train_loss:.3f}')
-#     print(f'Validation Loss: {valid_loss:.3f}')
+    for epoch in range(num_epoch):
+        print('\n Epoch {:}/{:}'.format(epoch + 1, num_epoch))
+        train_loss = train()
+        # evaluate model
+        valid_loss = evaluate()
+        if valid_loss < best_valid_loss:
+            best_valid_loss = valid_loss
+            torch.save(model.state_dict(), 'saved_weights.pth')
+        train_losses.append(train_loss)
+        valid_losses.append(valid_loss)
+        print(f'\nTraining Loss: {train_loss:.3f}')
+        print(f'Validation Loss: {valid_loss:.3f}')
+
+#StartTrain() 
